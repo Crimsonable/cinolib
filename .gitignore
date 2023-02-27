@@ -9,3 +9,4 @@ examples/bin/*
 
 examples/CMakeLists.txt.user
 build/*
+examples/out/*
