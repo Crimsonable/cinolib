@@ -44,6 +44,9 @@ option(CINOLIB_USES_SPECTRA             "Use Spectra"                OFF)
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+find_package(range-v3 CONFIG REQUIRED)
+target_link_libraries(cinolib INTERFACE range-v3 range-v3-meta range-v3::meta range-v3-concepts)
+
 if(CINOLIB_USES_OPENGL_GLFW_IMGUI)
     message("CINOLIB OPTIONAL MODULES: OpenGL, GLFW, ImGui")
     find_package(OpenGL)

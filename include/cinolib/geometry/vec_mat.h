@@ -56,14 +56,13 @@ class mat
 
         //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-        explicit mat(const std::initializer_list<mat<r,1,T>> & il, const int mode = COLS);
-        explicit mat(const std::initializer_list<T> & il);
+        mat(const std::initializer_list<mat<r,1,T>> & il, const int mode = COLS);
+        mat(const std::initializer_list<T> & il);
         explicit mat(const T   scalar);
         explicit mat(const T * values);
         explicit mat(const T v0, const T v1);
         explicit mat(const T v0, const T v1, const T v2);
         explicit mat() {}
-        virtual ~mat() {}
 
         //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

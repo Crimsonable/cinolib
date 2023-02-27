@@ -38,6 +38,7 @@
 #include <cinolib/meshes/mesh_attributes.h>
 #include <cinolib/symbols.h>
 
+#include <range/v3/range/concepts.hpp>
 namespace cinolib {
 
 template <class M = Mesh_std_attributes, class V = Vert_std_attributes,
@@ -60,11 +61,11 @@ public:
   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   void clear() override;
-  template <typename RngCoords, typename RngPolys>
-  void init(const RngCoords &coords, const RngPolys &polys);
 
-  void init(const std::vector<vec3d> &verts,
-            const std::vector<std::vector<uint>> &polys);
+  template <typename RngCoords, typename RngPolys>
+    requires(ranges::input_range<RngCoords> && ranges::input_range<RngPolys>)
+  void init(const RngCoords &verts, const RngPolys &polys);
+  
   void init(std::vector<vec3d> &pos, // vertex xyz positions
             std::vector<vec3d> &tex, // vertex uv(w) texture coordinates
             std::vector<vec3d> &nor, // vertex normals
@@ -146,10 +147,10 @@ public:
   std::vector<uint> vert_adj_visible_polys(const uint vid, const vec3d dir,
                                            const double ang_thresh = 60.0);
   std::vector<uint> vert_boundary_edges(const uint vid) const;
-  std::vector<uint>
-  vert_verts_link(const uint vid) const; // see
-                                         // https://en.wikipedia.org/wiki/Simplicial_complex#Closure,_star,_and_link
-                                         // for adefinition of link and star
+  std::vector<uint> vert_verts_link(const uint vid)
+      const; // see
+             // https://en.wikipedia.org/wiki/Simplicial_complex#Closure,_star,_and_link
+             // for adefinition of link and star
   std::vector<uint> vert_edges_link(const uint vid) const;
   std::vector<uint> vert_ordered_verts_link(const uint vid) const;
   std::vector<uint> vert_ordered_polys_star(const uint vid) const;
