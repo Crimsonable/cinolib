@@ -8,3 +8,4 @@ examples/build*
 examples/bin/*
 
 examples/CMakeLists.txt.user
+build/*
