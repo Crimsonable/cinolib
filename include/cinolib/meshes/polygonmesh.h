@@ -62,7 +62,7 @@ public:
   explicit Polygonmesh(const std::vector<double> &coords,
                        const std::vector<std::vector<uint>> &polys);
 
-  ~Polygonmesh() {}
+  // ~Polygonmesh() {}
 
   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

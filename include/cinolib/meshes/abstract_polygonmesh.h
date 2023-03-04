@@ -51,7 +51,7 @@ protected:
 
 public:
   explicit AbstractPolygonMesh() : AbstractMesh<M, V, E, P>() {}
-  ~AbstractPolygonMesh() {}
+  // ~AbstractPolygonMesh() {}
 
   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
