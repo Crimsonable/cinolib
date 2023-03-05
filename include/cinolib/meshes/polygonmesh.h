@@ -56,13 +56,12 @@ public:
                        const std::vector<std::vector<uint>> &polys);
 
   template <typename RngCoords, typename RngPolys>
-    requires (ranges::input_range<RngCoords> CPP_and ranges::input_range<RngPolys>)
+    requires(
+        ranges::input_range<RngCoords> CPP_and ranges::input_range<RngPolys>)
   explicit Polygonmesh(const RngCoords &coords, const RngPolys &polys);
 
   explicit Polygonmesh(const std::vector<double> &coords,
                        const std::vector<std::vector<uint>> &polys);
-
-  // ~Polygonmesh() {}
 
   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
