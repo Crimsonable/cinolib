@@ -184,7 +184,7 @@ void read_OBJ(const char                     * filename,
                 for(std::string sub_str; ss >> sub_str;)
                 {
                     int v_pos, v_tex, v_nor;
-                    read_point_id(strdup(sub_str.c_str()), v_pos, v_tex, v_nor);
+                    read_point_id(_strdup(sub_str.c_str()), v_pos, v_tex, v_nor);
                     if (v_pos >= 0) p_pos.push_back(v_pos);
                     if (v_tex >= 0) p_tex.push_back(v_tex);
                     if (v_nor >= 0) p_nor.push_back(v_nor);
