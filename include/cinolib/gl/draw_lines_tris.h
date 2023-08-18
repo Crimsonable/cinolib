@@ -105,6 +105,7 @@ struct RenderData
     std::vector<float> seg_coords;
     std::vector<float> seg_colors; // rgba
     GLfloat            seg_width = 1;
+    GLfloat            point_size = 20;
     //
 };
 

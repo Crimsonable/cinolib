@@ -49,7 +49,7 @@ void render_tris(const RenderData & data)
         glColorPointer(4, GL_FLOAT, 0, data.tri_v_colors.data());
         glEnableClientState(GL_VERTEX_ARRAY);
         glVertexPointer(3, GL_FLOAT, 0, data.tri_coords.data());
-        glPointSize(data.seg_width);
+        glPointSize(data.point_size);
         glDrawArrays(GL_POINTS, 0, (GLsizei)(data.tri_coords.size()/3));
         glDisableClientState(GL_VERTEX_ARRAY);
         glDisableClientState(GL_COLOR_ARRAY);
