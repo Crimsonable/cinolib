@@ -577,6 +577,16 @@ void AbstractDrawablePolyhedralMesh<Mesh>::updateGL_in()
         }
     }
 
+    if(drawlist_in.draw_mode & DRAW_SEGS){
+        for(uint fid=0;fid<this->num_faces();++fid){
+            for(uint eid : this->adj_f2e(fid))
+            {
+                if (this->edge_is_on_srf(eid)) continue; // updateGL_out() will consider it
+                edges_to_render.insert(eid);
+            }
+        }
+    }
+
     for(uint eid : edges_to_render)
     {
         uint base_addr = uint(drawlist_in.seg_coords.size()/3);
